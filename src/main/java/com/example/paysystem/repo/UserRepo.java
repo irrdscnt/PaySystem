@@ -2,6 +2,7 @@ package com.example.paysystem.repo;
 
 import com.example.paysystem.entity.Role;
 import com.example.paysystem.entity.User;
+import com.example.paysystem.response.BuyerResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

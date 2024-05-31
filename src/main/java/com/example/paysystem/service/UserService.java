@@ -3,16 +3,14 @@ package com.example.paysystem.service;
 import com.example.paysystem.entity.Role;
 import com.example.paysystem.entity.User;
 import com.example.paysystem.repo.UserRepo;
+import com.example.paysystem.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -71,6 +69,23 @@ public class UserService {
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();
         return userRepo.findByEmail(principal.getName());
+    }
+
+
+    public boolean createUserApi(UserResponse userResponse) {
+        String email = userResponse.getEmail();
+        if (userRepo.findByEmail(email) != null) return false;
+
+        User user = new User();
+        user.setEmail(email);
+        user.setPhoneNumber(userResponse.getPhoneNumber());
+        user.setName(userResponse.getName());
+        user.setPassword(passwordEncoder.encode(userResponse.getPassword()));
+        user.setRoles(Collections.singleton(userResponse.getRoles()));
+        user.setActive(true);
+
+        userRepo.save(user);
+        return true;
     }
 
 }

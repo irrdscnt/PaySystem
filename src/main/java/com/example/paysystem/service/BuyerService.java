@@ -1,6 +1,7 @@
 package com.example.paysystem.service;
 
 import com.example.paysystem.entity.Buyer;
+import com.example.paysystem.entity.User;
 import com.example.paysystem.repo.BuyerRepo;
 import com.example.paysystem.response.BuyerResponse;
 import lombok.RequiredArgsConstructor;
@@ -31,12 +32,27 @@ public class BuyerService {
         buyerRepo.save(user);
     }
 
-    public boolean createUser(Buyer user) {
-        String email = user.getEmail();
+//    public boolean createUser(BuyerResponse user) {
+//        String email = user.getEmail();
+//        if (buyerRepo.findByEmail(email) != null) return false;
+////        user.setActive(true);
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        log.info("Saving new Buyer with email: {}", email);
+//        buyerRepo.save(user);
+//        return true;
+//    }
+
+    public boolean createBuyerApi(BuyerResponse buyerResponse) {
+        String email = buyerResponse.getEmail();
         if (buyerRepo.findByEmail(email) != null) return false;
-//        user.setActive(true);
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        log.info("Saving new Buyer with email: {}", email);
+
+        Buyer user = new Buyer();
+        user.setEmail(email);
+        user.setPhoneNumber(buyerResponse.getPhoneNumber());
+        user.setName(buyerResponse.getName());
+        user.setPassword(passwordEncoder.encode(buyerResponse.getPassword()));
+        user.setActive(true);
+
         buyerRepo.save(user);
         return true;
     }
