@@ -7,12 +7,12 @@ import com.example.paysystem.request.PaymentRequest;
 import com.example.paysystem.service.BuyerService;
 import com.example.paysystem.service.PaymentService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
-
 
 @RestController
 public class PaymentController {
@@ -56,5 +56,17 @@ public class PaymentController {
         payment.setStatus(Status.PENDING);
 
         paymentRepository.save(payment);
+    }
+    @ApiOperation(value = "Process payment by the buyer")
+    @PostMapping("/payments/process")
+    public ResponseEntity<String> processPayment(
+            @ApiParam(value = "ID of the payment") @RequestParam Long paymentId,
+            @ApiParam(value = "API key of the buyer") @RequestParam String apiKey) {
+        try {
+            paymentService.processPayment(paymentId, apiKey);
+            return ResponseEntity.status(HttpStatus.OK).body("Payment processed successfully.");
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 }
