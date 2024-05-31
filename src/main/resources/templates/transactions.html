@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Транзакции</title>
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header d-flex">
+      <h1 class="logo">1984</h1>
+      <div class="nav">
+        <ul class="nav_list d-flex">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="">О нас</a></li>
+          <li><a href="contact.html">Контакты</a></li>
+          <li><a href="admin_panel.html">Aдмин-панель</a></li>
+          <!-- только для админа -->
+          <a class="nav_list__btn" href="login.html">Войти</a>
+        </ul>
+      </div>
+    </header>
+    <div class="table-container">
+      <h2>Транзакции</h2>
+      <div class="filter-container">
+        <input type="text" id="companyFilter" placeholder="имя компании" />
+        <input type="text" id="personFilter" placeholder="имя физ лица" />
+        <select id="statusFilter">
+          <option value="">Все статусы</option>
+          <option value="Завершено">Завершено</option>
+          <option value="в процессе">в процессе</option>
+          <option value="провалено">провалено</option>
+        </select>
+        <input type="date" id="dateFilter" />
+      </div>
+      <table id="transactionsTable">
+        <thead>
+          <tr>
+            <th>Имя компании</th>
+            <th>Сумма</th>
+            <th>Статус</th>
+            <th>Имя физ лица</th>
+            <th>Дата</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Компания 1</td>
+            <td>1000</td>
+            <td>Завершено</td>
+            <td>Физ лицо 1</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>Компания 2</td>
+            <td>500</td>
+            <td>в процессе</td>
+            <td>Физ лицо 2</td>
+            <td>2024-01-01</td>
+          </tr>
+          <tr>
+            <td>Компания 3</td>
+            <td>800</td>
+            <td>провалено</td>
+            <td>Физ лицо 3</td>
+            <td>2024-01-01</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="js/filter.js"></script>
+  </body>
+</html>

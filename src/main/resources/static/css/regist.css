@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
+}
+
+.container {
+  max-width: 400px;
+  margin: 100px auto;
+
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  animation: glowingBorder 5s infinite alternate;
+}
+
+@keyframes glowingBorder {
+  0% {
+    box-shadow: 0 0 100px rgb(0, 162, 255); /* Начальный цвет */
+  }
+  50% {
+    box-shadow: 0 0 200px rgb(255, 0, 128); /* Средний цвет */
+  }
+  100% {
+    box-shadow: 0 0 100px rgb(183, 0, 255); /* Конечный цвет */
+  }
+}
+
+.auth-form {
+  text-align: center;
+}
+
+.auth-form h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #ff69b4;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff69b4; /* Розовый цвет */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
+}
+
+.auth-form button:hover {
+  background-color: #ffd700; /* Желтый цвет при наведении */
+}
+
+.auth-form p {
+  margin-top: 20px;
+}
+
+.auth-form a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+
+  border-radius: 3px; /* Добавляем скругление углов */
+  overflow: hidden; /* Убираем возможность отображения части элемента за пределами границ блока */
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  border-radius: 3px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select-wrapper:after {
+  content: "\25BC";
+  position: absolute;
+  top: 36%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Псевдокласс для стилизации при наведении */
+.select-wrapper:hover select {
+  border-color: #ff2ecb;
+}

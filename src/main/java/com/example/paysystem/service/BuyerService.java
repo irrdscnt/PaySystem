@@ -65,4 +65,15 @@ public class BuyerService {
         return buyerRepo.findByEmail(email);
     }
 
+    public boolean createBuyer(Buyer buyer) {
+        String email = buyer.getEmail();
+        if (buyerRepo.findByEmail(email) != null) return false;
+        buyer.setActive(true);
+        buyer.setBalance(0.0);
+        buyer.setPassword(passwordEncoder.encode(buyer.getPassword()));
+        log.info("Saving new Buyer with email: {}", email);
+        buyerRepo.save(buyer);
+        return true;
+    }
+
 }

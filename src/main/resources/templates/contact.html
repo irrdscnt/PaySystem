@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты</title>
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header d-flex">
+      <h1 class="logo">1984</h1>
+      <div class="nav">
+        <ul class="nav_list d-flex">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="">О нас</a></li>
+          <li><a href="contact.html">Контакты</a></li>
+          <li><a href="admin_panel.html">Aдмин-панель</a></li>
+          <!-- только для админа -->
+          <a class="nav_list__btn" href="login.html">Войти</a>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.0427193467835!2d74.5765239378695!3d42.87194247126992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb618e8bfffff%3A0xa628e0fa4dc17acb!2z0JrRi9GA0LPRi9C30YHQutC-LdCT0LXRgNC80LDQvdGB0LrQuNC5INCY0L3RgdGC0LjRgtGD0YIg0J_RgNC40LrQu9Cw0LTQvdC-0Lkg0JjQvdGE0L7RgNC80LDRgtC40LrQuA!5e0!3m2!1sru!2skg!4v1717177098698!5m2!1sru!2skg"
+        width="1170"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <h1>Свяжитесь с нами</h1>
+      <div class="contact-info">
+        <div class="company-info">
+          <h2>Наши контакты</h2>
+          <p>
+            <strong>Адрес:</strong> 12345, ул.Темирязева, Бишкек, Кыргызстан
+          </p>
+          <p><strong>Телефон:</strong> +996 123 456 789</p>
+          <p><strong>Email:</strong> info@1984.com</p>
+          <p><strong>Рабочие часы:</strong> Пн-Пт 9:00 - 18:00</p>
+        </div>
+        <div class="map" id="map"></div>
+      </div>
+    </div>
+    <script src="js/map.js"></script>
+  </body>
+</html>

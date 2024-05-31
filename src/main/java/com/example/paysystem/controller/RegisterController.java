@@ -1,6 +1,8 @@
 package com.example.paysystem.controller;
 
+import com.example.paysystem.entity.Buyer;
 import com.example.paysystem.entity.User;
+import com.example.paysystem.service.BuyerService;
 import com.example.paysystem.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -15,22 +17,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class RegisterController {
     private final UserService userService;
-    @GetMapping("/registration")
-    public String registration() {
-        return "registration";
+    private final BuyerService buyerService;
+
+    @GetMapping("/regBuyer")
+    public String regBuyer() {
+        return "reg/regClient";
+    }
+
+    @GetMapping("/regSeller")
+    public String regSeller() {
+        return "reg/regSeller";
     }
 
     @GetMapping("/login")
-    public String login(){
-        return "login";
+    public String login() {
+        return "reg/login";
     }
 
-    @PostMapping("/registration")
-    public String createUser(User user, Model model){
-        if (!userService.createUser(user)){
+    @PostMapping("/regBuyer")
+    public String createBuyer(Buyer buyer, Model model) {
+        if (!buyerService.createBuyer(buyer)) {
             model.addAttribute("message", "User already exists! Please ");
-            return "registration";
+            return "reg/regClient";
+        }
+        return "redirect:/login";
+    }
+
+    @PostMapping("/regSeller")
+    public String createSeller(User user, Model model) {
+        if (!userService.createUser(user)) {
+            model.addAttribute("message", "User already exists! Please ");
+            return "reg/regSeller";
         }
         return "redirect:/login";
     }
 }
+
