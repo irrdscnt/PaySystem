@@ -8,7 +8,5 @@ import lombok.Setter;
 public class PaymentRequest {
     private Double amount;
     private String apiKey;
-    private Long userId;
-
-
+    private Long buyerId;
 }

@@ -38,7 +38,7 @@ public class Buyer implements UserDetails {
     @Column(updatable = false)
     private LocalDateTime dateOfCreated;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
     private List<Payment> payments;
 
     @Column(unique = true)
