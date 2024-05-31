@@ -12,28 +12,27 @@ import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.*;
 
-@SuppressWarnings("ALL")
+@Table(name = "buyer")
+@Entity
 @Getter
 @Setter
-@Entity
-@Table(name = "usr")
 @Data
-public class User implements UserDetails {
+public class Buyer implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique = true)
     private String email;
+
     private String phoneNumber;
+
     private boolean active;
+
     private String name;
+
     @Column(length = 1000)
     private String password;
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"))
-    @Enumerated(EnumType.STRING)
-    private Set<Role> roles = new HashSet<>();
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(updatable = false)
@@ -44,8 +43,11 @@ public class User implements UserDetails {
 
     @Column(unique = true)
     private int account;
+
     private Double balance;
+
     private String apiKey;
+
 
     @PrePersist
     private void init() {
@@ -61,27 +63,9 @@ public class User implements UserDetails {
         this.apiKey = sb.toString();
     }
 
-    public boolean isAdmin() {
-        return roles.contains(Role.ROLE_ADMIN);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return Objects.equals(id, user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
-    // security
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return List.of();
     }
 
     @Override
@@ -108,5 +92,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return active;
     }
-
 }
