@@ -1,5 +1,6 @@
 package com.example.paysystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
@@ -16,9 +17,11 @@ public class Payment {
     @Enumerated(EnumType.STRING)
     private Status status;
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id",referencedColumnName = "id")
+    @JsonIgnore
     private User user;
     @ManyToOne
-    @JoinColumn(name = "buyer_id")
+    @JsonIgnore
+    @JoinColumn(name = "buyer_id",referencedColumnName = "id")
     private Buyer buyer;
 }
