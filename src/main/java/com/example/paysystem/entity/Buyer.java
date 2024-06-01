@@ -34,7 +34,7 @@ public class Buyer implements UserDetails {
     @Column(length = 1000)
     private String password;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(updatable = false)
     private LocalDateTime dateOfCreated;
 

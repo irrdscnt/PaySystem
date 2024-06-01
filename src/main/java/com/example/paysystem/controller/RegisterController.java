@@ -31,10 +31,10 @@ public class RegisterController {
 
     @GetMapping("/login")
     public String login() {
-        return "reg/login";
+        return "login";
     }
 
-    @PostMapping("/regBuyer")
+    @PostMapping("/regSeller")
     public String createBuyer(Buyer buyer, Model model) {
         if (!buyerService.createBuyer(buyer)) {
             model.addAttribute("message", "User already exists! Please ");
@@ -43,7 +43,7 @@ public class RegisterController {
         return "redirect:/login";
     }
 
-    @PostMapping("/regSeller")
+    @PostMapping("/regBuyer")
     public String createSeller(User user, Model model) {
         if (!userService.createUser(user)) {
             model.addAttribute("message", "User already exists! Please ");

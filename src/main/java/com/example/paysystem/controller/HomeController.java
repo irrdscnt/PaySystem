@@ -7,23 +7,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.security.Principal;
+
 @Controller
 @RequiredArgsConstructor
-public class AdminController {
+public class HomeController {
     private final UserService userService;
     private final BuyerService buyerService;
 
-    @GetMapping("/admin")
-    public String adminPanel(Model model){
-        return "admin";
+    @GetMapping("/")
+    public String getHome(Principal principal, Model model){
+        model.addAttribute("user", userService.getUserByPrincipal(principal));
+        model.addAttribute("buyer", buyerService.getBuyerByPrincipal(principal));
+        return "index";
     }
-
-    @GetMapping("/admin/clients")
-    public String adminPanelClient(Model model){
-        model.addAttribute("user", userService.list());
-        model.addAttribute("buyer", buyerService.list());
-        return "allUsers";
-    }
-
-
 }
