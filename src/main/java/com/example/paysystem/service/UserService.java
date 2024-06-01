@@ -54,6 +54,9 @@ public class UserService {
     public User findUserByEmail(String email){
         return userRepo.findByEmail(email);
     }
+    public User findUserByName(String name){
+        return userRepo.findByName(name);
+    }
 
     public void changeUserRoles(User user, Map<String, String> form) {
         Set<String> roles = Arrays.stream(Role.values())

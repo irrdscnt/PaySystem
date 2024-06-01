@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>ЮЛ</title>
+</head>
+<body>
+<p>Личный кабинет</p>
+<p>Номер счета: <span th:text="${user.name}"></span></p>
+<p>Баланс: <span th:text="${user.balance}"></span></p>
+<p>API key: <span th:text="${user.apiKey}"></span></p>
+<div>Запросить деньги: </div>
+<form method="post" action="/requestMoney" th:object="${pay}">
+    <select name="selectBuyer" size="1">
+        <option disabled selected value="">---</option>
+        <div th:each="buyer : ${buyer}">
+            <option th:value="${buyer.id}" th:text="${buyer.name}"></option>
+        </div>
+    </select>
+    <input type="text" name="balance" id="nameAuthor">
+    <button type="submit">Запросить</button>
+</form>
+</body>
+</html>

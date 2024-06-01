@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.List;
 
 @Service
@@ -76,4 +77,8 @@ public class BuyerService {
         return true;
     }
 
+    public Buyer getBuyerByPrincipal(Principal principal) {
+        if (principal == null) return new Buyer();
+        return buyerRepo.findByEmail(principal.getName());
+    }
 }

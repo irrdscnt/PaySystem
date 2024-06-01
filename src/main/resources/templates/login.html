@@ -8,11 +8,6 @@
 </head>
 <body>
 <div class="container">
-    <span sec:authorize="isAuthenticated()">
-        <form th:action="@{/logout}" method="post">
-            <input type="submit" value="Sign out"/>
-        </form>
-    </span>
     <form th:action="@{/login}" method="post" class="auth-form">
         <h2>Авторизация</h2>
         <input type="email"  name="username"  placeholder="Email" />
