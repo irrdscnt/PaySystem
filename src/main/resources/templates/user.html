@@ -1,24 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>ЮЛ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запрос оплаты</title>
+    <link rel="stylesheet" th:href="@{/css/user-page.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-<p>Личный кабинет</p>
-<p>Номер счета: <span th:text="${user.name}"></span></p>
-<p>Баланс: <span th:text="${user.balance}"></span></p>
-<p>API key: <span th:text="${user.apiKey}"></span></p>
-<div>Запросить деньги: </div>
-<form method="post" action="/requestMoney" th:object="${pay}">
-    <select name="selectBuyer" size="1">
-        <option disabled selected value="">---</option>
-        <div th:each="buyer : ${buyer}">
-            <option th:value="${buyer.id}" th:text="${buyer.name}"></option>
-        </div>
-    </select>
-    <input type="text" name="balance" id="nameAuthor">
-    <button type="submit">Запросить</button>
-</form>
+<header class="header d-flex">
+    <h1 class="logo">1984</h1>
+    <div class="nav">
+        <ul class="nav_list d-flex">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about">О нас</a></li>
+            <li><a href="/contact">Контакты</a></li>
+            <li th:if="${currentUser != null}">
+                <a th:href="'/user/' + ${currentUser.id}">Личный кабинет</a>
+            </li>
+            <li th:if="${currentBuyer != null}">
+                <a th:href="'/buyer/' + ${currentBuyer.id}">Покупатель</a>
+            </li>
+            <span sec:authorize="!isAuthenticated()">
+            <li class="header__list-item_log">
+                <a href="/login" class="nav_list__btn">Войти</a>
+            </li>
+          </span>
+            <span sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+                <input class="nav_list__btn" type="submit" value="Выйти"/>
+            </form>
+          </span>
+        </ul>
+    </div>
+</header>
+  <h1>Личный кабинет</h1>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Имя клиента</th>
+          <th>Счёт</th>
+          <th>Баланс</th>
+          <th>Api key</th>
+          <th>Действие</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="user : ${user}">
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.account}"></td>
+          <td th:text="${user.balance}"></td>
+          <td style="width: 100px" th:text="${user.apiKey}"></td>
+          <td><button>Запросить деньги</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<!--  <form method="post" action="/requestMoney" th:object="${pay}">-->
+<!--    <select name="selectBuyer" size="1">-->
+<!--      <option disabled selected value="">-&#45;&#45;</option>-->
+<!--      <div th:each="buyer : ${buyer}">-->
+<!--        <option th:value="${buyer.id}" th:text="${buyer.name}"></option>-->
+<!--      </div>-->
+<!--    </select>-->
+<!--    <input type="text" name="balance" id="nameAuthor">-->
+<!--    <button type="submit">Запросить</button>-->
+<!--  </form>-->
 </body>
+
 </html>

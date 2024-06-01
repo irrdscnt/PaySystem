@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Контакты</title>
-    <link rel="stylesheet" th:href="@css/contact.css}" />
-    <link rel="stylesheet" th:href="@{css/style.css}" />
+    <link rel="stylesheet" th:href="@{/css/contact.css}" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
   </head>
   <body>
   <header class="header d-flex">
@@ -13,12 +13,24 @@
     <div class="nav">
       <ul class="nav_list d-flex">
         <li><a href="/">Главная</a></li>
-        <li><a href="">О нас</a></li>
+        <li><a href="/about">О нас</a></li>
         <li><a href="/contact">Контакты</a></li>
-        <li  sec:authorize="hasAuthority('ROLE_ADMIN')">
-          <a href="/admin">Aдмин-панель</a>
+        <li th:if="${currentUser != null}">
+          <a th:href="'/user/' + ${currentUser.id}">Личный кабинет</a>
         </li>
-        <a class="nav_list__btn" href="/login">Войти</a>
+        <li th:if="${currentBuyer != null}">
+          <a th:href="'/buyer/' + ${currentBuyer.id}">Покупатель</a>
+        </li>
+        <span sec:authorize="!isAuthenticated()">
+            <li class="header__list-item_log">
+                <a href="/login" class="nav_list__btn">Войти</a>
+            </li>
+          </span>
+        <span sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+                <input class="nav_list__btn" type="submit" value="Выйти"/>
+            </form>
+          </span>
       </ul>
     </div>
   </header>
