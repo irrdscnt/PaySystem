@@ -50,6 +50,7 @@ public class UserService {
         return userRepo.findAll();
     }
 
+
     public User findUserByEmail(String email){
         return userRepo.findByEmail(email);
     }

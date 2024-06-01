@@ -59,6 +59,7 @@ public class PaymentService {
         return paymentRepository.findByUserAndStatus(user, Status.PENDING);
     }
 
+
     @Transactional
     public void processPayment(Long paymentId, String apiKey) {
         Payment payment = paymentRepository.findById(paymentId).orElseThrow(() -> new RuntimeException("Payment not found"));
@@ -84,7 +85,9 @@ public class PaymentService {
         paymentRepository.save(payment);
     }
 
-
+    public List<Payment> listAllPayments() {
+        return paymentRepository.findAll();
+    }
 }
 
 
