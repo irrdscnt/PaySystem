@@ -1,20 +1,30 @@
 package com.example.paysystem.controller;
+import com.example.paysystem.dto.BuyerDTO;
+import com.example.paysystem.dto.PaymentDTO;
+import com.example.paysystem.dto.UserDTO;
 import com.example.paysystem.entity.*;
 import com.example.paysystem.repo.BuyerRepo;
 import com.example.paysystem.repo.PaymentRepository;
 import com.example.paysystem.repo.UserRepo;
 import com.example.paysystem.request.PaymentRequest;
+import com.example.paysystem.response.PaymentResponse;
+import com.example.paysystem.response.UserResponse;
 import com.example.paysystem.service.BuyerService;
 import com.example.paysystem.service.PaymentService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
+@Api(tags = "Payment Management", description = "Endpoints for managing payments")
 public class PaymentController {
     private final UserRepo userRepo;
     private final PaymentRepository paymentRepository;
@@ -54,9 +64,9 @@ public class PaymentController {
         payment.setUser(seller);
         payment.setBuyer(buyer);
         payment.setStatus(Status.PENDING);
-
         paymentRepository.save(payment);
     }
+
     @ApiOperation(value = "Process payment by the buyer")
     @PostMapping("/payments/process")
     public ResponseEntity<String> processPayment(
@@ -68,5 +78,18 @@ public class PaymentController {
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
+    }
+
+    @ApiOperation(value = "Listing of all payments")
+    @GetMapping("/payments/all")
+    public List<PaymentDTO> getPayments() {
+        List<Payment> payments = paymentService.listAllPayments();
+        return payments.stream()
+                .map(payment -> {
+                    UserDTO userDTO = new UserDTO(payment.getUser());
+                    BuyerDTO buyerDTO = new BuyerDTO(payment.getBuyer());
+                    return new PaymentDTO(payment.getId(), payment.getAmount(), payment.getStatus().toString(), userDTO,payment.getCreatedAt(), buyerDTO);
+                })
+                .collect(Collectors.toList());
     }
 }
