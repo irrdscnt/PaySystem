@@ -21,4 +21,14 @@ public class HomeController {
         model.addAttribute("buyer", buyerService.getBuyerByPrincipal(principal));
         return "index";
     }
+
+    @GetMapping("/contact")
+    public String getContact(Model model){
+        return "contact";
+    }
+
+    @GetMapping("/about")
+    public String getAbout(Model model){
+        return "about";
+    }
 }

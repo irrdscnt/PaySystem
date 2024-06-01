@@ -1,0 +1,521 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style-type: none;
+}
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ------------------------------------------------ */
+
+.header {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 2%;
+}
+.logo {
+  font-family: Rubik;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+}
+.nav {
+  width: 40%;
+}
+.nav_list li a {
+  font-family: Open Sans;
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.nav_list__btn {
+  width: 149px;
+  height: 50px;
+  color: #ffffff;
+  display: flex;
+  text-align: center;
+  background-color: #f74d4d;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 17px;
+  font-weight: 700;
+}
+.first_block {
+  background: radial-gradient(
+    46.76% 77.76% at 0% 0%,
+    #f74d4d 0%,
+    rgba(191, 9, 255, 0) 100%
+  );
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+/* ------------------------------------------------ */
+.welcome_block {
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+}
+
+.welcome_block__left h2 {
+  font-family: Open Sans;
+  font-size: 70px;
+  font-weight: 800;
+  color: #150f37;
+}
+.welcome_block__left h2 span {
+  color: #e22675;
+  display: block;
+  margin-bottom: 20px;
+}
+.welcome_block__left {
+  width: 35%;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: 700;
+  color: #150f37;
+}
+.start_btn {
+  width: 293px;
+  height: 70px;
+  display: flex;
+  text-align: center;
+  background-color: #e33a88;
+  border-radius: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  box-shadow: 0px 4px 41px 0px #700aa066;
+  margin-top: 35px;
+}
+/* ------------------------------------------------ */
+.welcome_block__right_img {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  /* width: 860px;
+  height: 517px; */
+}
+.welcome_block__right_phone {
+  position: relative;
+  left: 48%;
+  top: 300px;
+}
+.kristal {
+  position: relative;
+  left: 46%;
+  bottom: 403px;
+}
+
+/* ------------------------------------------------ */
+.pay_product {
+  margin-top: 15%;
+  padding-right: 10%;
+}
+.pay_product__left .visa {
+  width: 245px;
+  height: 397px;
+}
+.pay_product__left_div .risk {
+  width: 397px;
+  height: 213px;
+}
+.pay_product__left_div .pay {
+  width: 397px;
+  height: 194px;
+}
+.pay_product__right h6 {
+  font-family: Open Sans;
+  font-size: 31px;
+  font-weight: 700;
+  color: #161c2d;
+}
+.pay_product__right p {
+  margin-top: 20px;
+  font-family: Open Sans;
+  font-size: 19px;
+  font-weight: 400;
+  color: #161c2d;
+  line-height: 35px;
+}
+/* ------------------------------------------------ */
+.api {
+  width: 90%;
+  margin: 0 auto;
+}
+.api_left {
+  width: 500px;
+}
+.api_left h3 {
+  font-family: Open Sans;
+  font-size: 48px;
+  font-weight: 800;
+  color: #161c2d;
+}
+
+.api_left h6 {
+  font-family: Open Sans;
+  font-size: 21px;
+  font-weight: 700;
+  color: #161c2d;
+  display: block;
+  margin: 24px 0 10px 0;
+}
+.api_left p {
+  font-family: Open Sans;
+  font-size: 17px;
+  font-weight: 400;
+  color: #161c2d;
+  line-height: 29px;
+}
+.api_right {
+  color: #abb2bf;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+.code-container {
+  background-color: #1e1e1e;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+pre {
+  margin: 0;
+}
+
+code {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.orange {
+  color: rgba(255, 172, 96, 1);
+}
+.green {
+  color: rgba(26, 198, 156, 1);
+}
+.blue {
+  color: rgba(63, 164, 255, 1);
+}
+.pink {
+  color: rgba(255, 50, 198, 1);
+}
+.purple {
+  color: rgba(196, 120, 255, 1);
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    width: 70%;
+  }
+
+  .welcome_block {
+    flex-direction: column;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .welcome_block__left {
+    width: 100%;
+    padding: 20px;
+  }
+  .btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  .pay_product {
+    flex-direction: column;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .pay_product__left,
+  .pay_product__right {
+    width: 100%;
+  }
+
+  .api {
+    flex-direction: column;
+  }
+.code-container{
+  margin-top: 3%;
+}
+  .api_left,
+  .api_right {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome_block__left h2 {
+    font-size: 50px;
+  }
+
+  .pay_product__right h6 {
+    font-size: 25px;
+  }
+
+  .pay_product__right p {
+    font-size: 16px;
+    display: block;
+    margin: 17px 0;
+  }
+
+  .api_left h3 {
+    font-size: 35px;
+  }
+
+  .api_left h6 {
+    font-size: 18px;
+  }
+
+  .api_left p {
+    font-size: 15px;
+  }
+  .welcome_block__right_img {
+    display: none;
+  }
+  .welcome_block {
+    flex-direction: column;
+  }
+  .welcome_block__right_phone,
+  .kristal {
+    display: none;
+  }
+
+  .visa,
+  .risk,
+  .pay {
+    display: none;
+  }
+  .posterminal {
+    width: 200px;
+    height: 270px;
+  }
+  .code-container {
+    width: 100%;
+    margin-top: 3%;
+  }
+  code {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 576px) {
+  .header{
+    flex-direction: column;
+  }
+  .nav_list{
+    flex-direction: column;
+  }
+  .welcome_block__left h2 {
+    font-size: 40px;
+  }
+
+  .start_btn {
+    width: 100%;
+    height: 50px;
+  }
+
+  .pay_product__right h6 {
+    font-size: 20px;
+  }
+
+  .pay_product__right p {
+    font-size: 14px;
+    display: block;
+    margin: 17px 0;
+  }
+
+  .api_left h3 {
+    font-size: 28px;
+  }
+
+  .api_left h6 {
+    font-size: 16px;
+  }
+
+  .api_left p {
+    font-size: 13px;
+  }
+  .welcome_block__right_img {
+    display: none;
+  }
+  .welcome_block {
+    flex-direction: column;
+  }
+  .welcome_block__right_phone,
+  .kristal {
+    display: none;
+  }
+
+  .visa,
+  .risk,
+  .pay {
+    display: none;
+  }
+  .posterminal {
+    width: 200px;
+    height: 500px;
+  }
+  .code-container {
+    width: 100%;
+    margin-top: 3%;
+  }
+  code {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+}
+
+/* Общие стили для мобильных устройств */
+@media screen and (max-width: 767px) {
+  .video-block {
+    margin: 30px auto 70px; /* Центрирование блока и уменьшение отступов */
+    width: 90%; /* Ширина блока на мобильных устройствах */
+    margin-left: auto; /* Удаление левого отступа */
+    margin-right: auto; /* Удаление правого отступа */
+  }
+
+  .video-block img {
+    width: 100%; /* Ширина изображения на мобильных устройствах */
+    height: auto; /* Автоматическая высота изображения */
+    border-radius: 10px;
+  }
+
+  .testimonial {
+    flex-direction: column; /* Отображение элементов блока в столбец */
+    height: auto; /* Автоматическая высота блока */
+    padding: 15px; /* Уменьшение внутренних отступов */
+  }
+
+  .testimonial img {
+    width: 80px; /* Уменьшение размера изображения */
+    height: 80px; /* Уменьшение размера изображения */
+    margin-bottom: 10px; /* Увеличение отступа снизу */
+  }
+
+  .testimonial-text {
+    max-width: 100%; /* Максимальная ширина текста */
+    text-align: center; /* Выравнивание текста по центру */
+  }
+
+  footer {
+    margin-top: 30px; /* Увеличение верхнего отступа */
+    margin-left: 20px; /* Уменьшение левого отступа */
+    margin-right: 20px; /* Уменьшение правого отступа */
+  }
+}
+
+/* Стили для планшетов и устройств среднего размера */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .video-block {
+    margin-left: 20px; /* Уменьшение отступа слева */
+    margin-right: 20px; /* Уменьшение отступа справа */
+  }
+
+  .testimonial {
+    padding: 20px; /* Увеличение внутренних отступов */
+  }
+
+  .testimonial img {
+    width: 100px; /* Увеличение размера изображения */
+    height: 100px; /* Увеличение размера изображения */
+    margin-bottom: 20px; /* Увеличение отступа снизу */
+  }
+
+  footer {
+    margin-left: 100px; /* Уменьшение левого отступа */
+    margin-right: 100px; /* Уменьшение правого отступа */
+  }
+}
+
+/* Стили для экранов с шириной более 992px */
+@media screen and (min-width: 992px) {
+  .video-block {
+    margin-left: 37px; /* Возвращение стандартного отступа слева */
+    margin-right: 37px; /* Возвращение стандартного отступа справа */
+  }
+
+  .testimonial {
+    margin-left: auto; /* Центрирование блока */
+    margin-right: auto; /* Центрирование блока */
+    max-width: 730px; /* Максимальная ширина блока */
+    padding: 20px; /* Увеличение внутренних отступов */
+  }
+
+  footer {
+    margin-left: 200px; /* Возвращение стандартного отступа слева */
+    margin-right: 200px; /* Возвращение стандартного отступа справа */
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .video-block img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .testimonial img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 15px;
+  }
+}
+
+/* Стили для экранов с шириной от 992px до 1199px (планшеты и устройства среднего размера в горизонтальной ориентации) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .video-block {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .testimonial {
+    padding: 25px;
+  }
+
+  .testimonial img {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 25px;
+  }
+
+  footer {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+}
